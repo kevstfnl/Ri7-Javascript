@@ -12,12 +12,16 @@
     <div class="board">
         <canvas id="stage" height="300" width="400"></canvas>
         <div class="word">
-            <p>_ _ _ _ _ _</p>
+            <p id="maskedWord"></p>
         </div>
     </div>
     <div class="user">
-        <label for="letter">Lettre:</label>
-        <input type="text" name="letter" id="letter" maxlength="1">
+        <div id="used"></div>
+        <div class="align">
+            <label for="letter">Entre une lettre: </label>
+            <input type="text" name="letter" id="letter" maxlength="1">
+        </div>
+
         <button type="button" id="send">Envoyé</button>
     </div>
 

@@ -13,14 +13,34 @@ body {
 
 .board {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 1rem;
     align-items: center;
-    background-color: gray;
     height: 50%;
+}
+
+#maskedWord {
+    font-size: 3rem;
+}
+
+#send {
+    background-color: hsl(120, 100%, 25%);
+    font-weight: 900;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    padding: 1em;
+}
+
+.align {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .user {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
