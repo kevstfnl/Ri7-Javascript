@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Click le clown</title>
+</head>
+
+<body>
+    <div id="app">
+        <p id="endMenu" class="menu"></p>
+        <div id="mainMenu" class="menu active">
+            <h1>Click le clown</h1>
+
+            <button id="playButton">Jouer</button>
+            <button id="settingsButton">Paramètres</button>
+        </div>
+        <form id="settingsMenu" class="menu">
+            <h2>Paramètres:</h2>
+            <div>
+                <label for="blood">Afficher le sang</label>
+                <input type="checkbox" name="blood" id="blood" checked>
+            </div>
+            <div>
+                <label for="sound">Sons:</label>
+                <input type="checkbox" name="sound" id="sound" checked>
+            </div>
+            <div>
+                <label for="volume">Volume:</label>
+                <input type="range" name="sound" id="volume">
+            </div>
+            <button type="button" id="backToMain">Appliquer</button>
+        </form>
+        <div id="gameBoard">
+            <p id="score">Score: 0</p>
+            <img src="./assets/imgs/clown.svg" alt="clown" id="target" draggable="false">
+
+        </div>
+
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>

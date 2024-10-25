@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100vh;
+}
+
+.board {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: gray;
+    height: 50%;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input {
+    outline: none;
+    border: none;
+    background-color: rgb(196, 196, 196);
+    border-radius: 8px;
+    font-size: 2rem;
+    text-align: center;
+    width: 2rem;
+}
