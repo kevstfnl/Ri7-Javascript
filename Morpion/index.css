@@ -1,0 +1,274 @@
+:root {
+    --b1: hsl(200, 20%, 5%);
+    --b2: hsl(200, 20%, 10%);
+    --b3: hsl(200, 20%, 15%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    user-select: none;
+    font-family: sans-serif;
+    background-color: var(--b1);
+}
+
+#app {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+header {
+    text-align: center;
+    background-color: var(--b2);
+}
+
+footer {
+    text-align: center;
+    background-color: var(--b2);
+}
+
+main {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.menu {
+    &:not(.active) {
+        transform: scale(0);
+        transition: transform 250ms;
+    }
+
+    &.active {
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        background-color: var(--b2);
+        padding: 16px;
+        border-radius: 16px;
+        gap: 16px;
+        transform: scale(100%);
+        transition: transform 250ms;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+button {
+    margin-top: 16px;
+    padding: 0.5em;
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    background-color: green;
+    border: none;
+    border-radius: 16px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 0 5px;
+    transition: filter 250ms, transform 250ms;
+
+
+    &:hover {
+        filter: brightness(130%);
+        transform: scale(105%);
+    }
+
+    &:active {
+        transform: scale(95%);
+    }
+
+    #endMenu>& {
+        width: 150px;
+
+        &.settings {
+            background-color: orangered;
+        }
+    }
+}
+
+.menuSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--b3);
+    padding: 16px;
+    border-radius: 16px;
+
+    h3 {
+        font-size: 1rem;
+    }
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    display: none;
+
+    &+label {
+        background-color: gray;
+        padding: 0.25em 0.5em 0.25em 0.5em;
+        font-weight: 700;
+        border-radius: 8px;
+        box-shadow: rgba(0, 0, 0, 0.3) 0 0 5px;
+        transition: filter 250ms, transform 250ms, background-color 250ms;
+
+        &:hover {
+            filter: brightness(130%);
+            transform: scale(105%);
+        }
+
+        &:active {
+            transform: scale(95%);
+        }
+    }
+
+    &:checked+label {
+        background-color: green;
+
+    }
+}
+
+#gameBoard {
+    position: absolute;
+    z-index: 2;
+    display: grid;
+    gap: 8px;
+
+    &.three {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+
+        .slot:hover:empty {
+            box-shadow: rgba(255, 255, 255, 0.1) 0 0 4px;
+            background-color: var(--b3);
+        }
+    }
+
+    &.four {
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+
+        .slot:hover,
+        .slot[data-y="0"]:hover~.slot[data-y="0"],
+        .slot[data-y="1"]:hover~.slot[data-y="1"],
+        .slot[data-y="2"]:hover~.slot[data-y="2"],
+        .slot[data-y="3"]:hover~.slot[data-y="3"],
+        .slot[data-y="4"]:hover~.slot[data-y="4"],
+        .slot[data-y="5"]:hover~.slot[data-y="5"],
+        .slot[data-y="6"]:hover~.slot[data-y="6"] {
+            box-shadow: rgba(255, 255, 255, 0.1) 0 0 4px;
+            background-color: var(--b3);
+        }
+    }
+}
+
+.slot {
+    opacity: 0;
+    height: 10vh;
+    width: 10vh;
+    background-color: var(--b2);
+    box-shadow: rgba(0, 0, 0, 0.3) 0 0 8px;
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 3rem;
+
+    transition: background-color 250ms, color 250ms, box-shadow 250ms;
+    animation: appear 250ms forwards;
+
+    &.win {
+        color: green;
+    }
+}
+
+@keyframes appear {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(100%);
+        opacity: 1;
+    }
+}
+
+#gameOverlay {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:not(.active) {
+        transform: scale(0);
+    }
+
+    &.active {
+
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        transform: scale(100%);
+    }
+
+}
+
+#leave {
+
+    &:not(.active) {
+        display: none;
+    }
+
+    &.active {
+        position: absolute;
+        top: 50px;
+        left: 25px;
+        padding: 0.5em 1em 0.5em 1em;
+        color: white;
+        font-weight: 900;
+        text-transform: uppercase;
+        background: none;
+        box-shadow: none;
+        transition: background-color 250ms transform 250ms;
+
+        &:hover {
+            background-color: var(--b2);
+            transform: scale(120%);
+        }
+    }
+
+
+}
+
+.blur {
+    z-index: 10;
+    backdrop-filter: blur(10px);
+}
+
+#endMenu {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+}
+
+#announce {
+    font-weight: 900;
+    font-size: 3rem;
+}

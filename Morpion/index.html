@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Morpion</title>
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <h1>Morpion</h1>
+        </header>
+        <main>
+            <div id="mainMenu" class="menu active">
+                <h2>Paramètres:</h2>
+                <form>
+                    <div class="menuSection">
+                        <h3>Opposant:</h3>
+                        <div class="options">
+                            <input type="radio" name="player" id="player" checked>
+                            <label for="player">Joueur</label>
+                            <input type="radio" name="player" id="bot">
+                            <label for="bot">Robot</label>
+                        </div>
+                    </div>
+                    <div class="menuSection">
+                        <h3>Mode:</h3>
+                        <div class="options">
+                            <input type="radio" name="mode" id="classic" checked>
+                            <label for="classic">Classique</label>
+                            <input type="radio" name="mode" id="connectFour">
+                            <label for="connectFour">Puissance 4</label>
+                        </div>
+                    </div>
+                    <button type="button" id="playButton" onclick="start()">Jouer</button>
+                </form>
+            </div>
+
+            <div id="gameOverlay">
+                <button id="leave">X</button>
+                <div id="endMenu" class="menu">
+                    <h3 id="announce"></h3>
+                    <button id="replay">Rejouer</button>
+                    <button id="settings" class="settings">Paramètres</button>
+                </div>
+            </div>
+
+            <div id="gameBoard"></div>
+        </main>
+        <footer>
+            <p>Copyright © Stefanelli Kevin - All right reserved</p>
+        </footer>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>

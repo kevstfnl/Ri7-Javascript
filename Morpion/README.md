@@ -1,0 +1,60 @@
+# Cahier des Charges - Projet Morpion 
+## Objectif :
+
+Développer deux jeux de société classiques en utilisant le langage de programmation JavaScript, avec les fonctionnalités spécifiées ci-dessous.
+
+## Étape 1 - Morpion :
+### Joueur VS Joueur :
+
+    Grille 3x3 :
+        Mettre en place une grille de jeu de taille 3x3 pour le mode Joueur VS Joueur.
+
+    Aligner 3 Pions pour Gagner :
+        Définir la règle de victoire : un joueur gagne s'il aligne 3 pions verticalement, horizontalement ou en diagonale.
+
+    Gérer la Victoire, la Défaite et le Match Nul :
+        Afficher un message de victoire lorsque le jeu est remporté.
+        Afficher un message de défaite si la grille est pleine sans alignement de 3 pions.
+        Gérer le match nul lorsque la grille est pleine sans vainqueur.
+
+## Étape 2 - Morpion (Version Améliorée) :
+### Joueur VS Ordinateur :
+
+    L’Ordinateur Joue de Manière Aléatoire :
+        Implémenter un mode Joueur VS Ordinateur où l'ordinateur joue de manière aléatoire.
+
+    L’Ordinateur Ne Peut Pas Jouer dans une Case Occupée :
+        Empêcher l'ordinateur de jouer dans une case déjà occupée par un joueur.
+
+## BONUS - Puissance 4 :
+### Joueur VS Ordinateur :
+
+    Modifier la Grille en 6x7 :
+        Adapter la grille du jeu pour la version Puissance 4, qui est de taille 6x7.
+
+    Aligner 4 Pions pour Gagner :
+        Modifier la règle de victoire pour Puissance 4 : un joueur gagne en alignant 4 pions verticalement, horizontalement ou en diagonale.
+
+    L’Ordinateur Joue de Manière Aléatoire (Puissance 4) :
+        Ajouter la fonctionnalité de jeu de l'ordinateur pour Puissance 4, où l'ordinateur joue de manière aléatoire.
+
+    Pas de Contrainte pour Jouer (Sans Gravité) :
+        Permettre aux joueurs de placer leurs jetons librement dans une colonne sans contrainte de gravité (les jetons tombent directement au fond).
+
+## Technologies Utilisées :
+
+    HTML5 pour la structure de la page.
+    CSS3 pour le style et la présentation.
+    JavaScript pour la logique du jeu et la manipulation du DOM.
+
+## Livrables Attendus :
+
+    Code source complet et bien commenté.
+    Fichiers HTML, CSS et JavaScript distincts.
+    Documentation sur l'utilisation des jeux et les règles.
+
+## Tests :
+
+    Assurer que les règles du Morpion sont correctement implémentées.
+    Vérifier le bon fonctionnement des modes Joueur VS Joueur et Joueur VS Ordinateur.
+    Tester la réactivité et l'interface utilisateur.
