@@ -158,8 +158,6 @@ function play(x, y) {
 
     result = checkWinner();
     if (result.winner || result.egality) {
-        console.log(result.winner)
-        console.log(result.egality)
         drawEnd(result);
         return;
     }
@@ -168,17 +166,12 @@ function play(x, y) {
     if (!isPlayer && currentPlayer == "o") {
         let x = random(0, board.length - 1);
         let y = random(0, board[0].length - 1);
-        if (isConnectFour) {
-            while (board[0][y] != "") {
-                x = 0;
-                y = random(0, board[0].length - 1);
-            }
-        } else {
-            while (board[x][y] != "") {
-                x = random(0, board.length - 1);
-                y = random(0, board[0].length - 1);
-            }
+
+        while (board[isConnectFour ? 0 : x][y] != "") {
+            x = isConnectFour ? 0 : random(0, board.length - 1);
+            y = random(0, board[0].length - 1);
         }
+
         setTimeout(() => {
             play(x, y);
         }, 500);
@@ -209,7 +202,7 @@ function drawEnd(result) {
     if (result.winner) {
         result.winningLine.forEach(([x, y]) => {
             const slot = document.querySelector("[data-x='" + x + "'][data-y='" + y + "']");
-            slot.classList.add("win")
+            slot.classList.add("win");
         })
         announce.innerText = "Victoire de " + result.winner;
     } else {

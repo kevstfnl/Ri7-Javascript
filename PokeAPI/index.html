@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Pokemon</title>
+</head>
+
+<body>
+    <header>
+        <h1>Pokedex</h1>
+        <div class="searchbox">
+            <input type="text" name="searchbar" id="searchBar" placeholder="">
+            <label for="searchBar">Recherche</label>
+            <button id="searchButton">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                    fill="undefined">
+                    <path
+                        d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+
+
+
+    <main>
+        <section id="home">
+            <h2>Accueil</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero porro quisquam, harum officia labore
+                fugiat, recusandae corporis a veritatis quo ea voluptas possimus rerum ratione est non sit voluptatem
+                error?</p>
+        </section>
+
+        <section id="error" class="hidden">
+            <article>
+                <h3>Erreur lors de la recherche du Pokemon !</h3>
+                <p id="errorMessage">Raison: </p>
+            </article>
+        </section>
+
+        <section id="loading" class="research hidden">
+            <div class="loader"></div>
+        </section>
+
+
+        <section id="cardsList">
+            <template id="cardsTemplate">
+                <article class="cards">
+                    <div class="image-container">
+                        <div class="sprites-container">
+                            <div class="sprites">
+                                <div class="sprites-face">
+                                    <img src="https://placehold.co/96" alt="pokemon de face" class="front">
+                                </div>
+                                <div class="sprites-back">
+                                    <img src="https://placehold.co/96" alt="pokemon de dos" class="back">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="control">
+                            <button class="turn">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="undefined">
+                                    <path
+                                        d="M204-318q-22-38-33-78t-11-82q0-134 93-228t227-94h7l-64-64 56-56 160 160-160 160-56-56 64-64h-7q-100 0-170 70.5T240-478q0 26 6 51t18 49l-60 60ZM481-40 321-200l160-160 56 56-64 64h7q100 0 170-70.5T720-482q0-26-6-51t-18-49l60-60q22 38 33 78t11 82q0 134-93 228t-227 94h-7l64 64-56 56Z" />
+                                </svg>
+                            </button>
+                            <button class="play">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="undefined">
+                                    <path d="M320-200v-560l440 280-440 280Zm80-280Zm0 134 210-134-210-134v268Z" />
+                                </svg>
+                            </button>
+                            <button class="suppress">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="undefined">
+                                    <path
+                                        d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <h3 class="name">Nom du pokemon</h3>
+                        <p class="height">Hauteur du pokemon</p>
+                        <p class="weight">Longueur du pokemon</p>
+                    </div>
+
+                </article>
+            </template>
+        </section>
+
+
+
+
+
+
+    </main>
+
+
+
+
+    <footer>
+        <div>
+            <p>Stefanelli Kevin</p>
+        </div>
+        <div>
+            <p>API Utilisé: <a href="https://pokeapi.co/" target="_blank">PokeAPI</a></p>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+</body>
+
+</html>

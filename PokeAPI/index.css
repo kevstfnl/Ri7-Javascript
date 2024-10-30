@@ -1,0 +1,316 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-weight: 900;
+    transition: color 250ms;
+
+    &:hover {
+        color: lightseagreen;
+    }
+}
+
+button {
+    cursor: pointer;
+}
+
+body {
+    font-family: sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    padding: 1em 2em 1em 2em;
+    background-color: red;
+    color: white;
+}
+
+h1 {
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.searchbox {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#searchButton {
+    line-height: 0;
+    border: none;
+    background: none;
+    border-radius: 8px;
+    padding: 0.25em;
+    transition: background-color 250ms;
+
+    svg {
+        fill: white;
+        filter: drop-shadow(rgba(0, 0, 0, 0.5) 3px 3px 5px);
+    }
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+}
+
+input {
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.3) 3px 3px 5px;
+    background-color: white;
+    font-size: 1rem;
+    padding: 0.25em 0.5em 0.25em 0.5em;
+}
+
+input~label {
+    position: absolute;
+    user-select: none;
+    cursor: text;
+    color: rgb(110, 110, 110);
+    left: 5px;
+    top: 5%;
+    transition: color 250ms, transform 250ms;
+}
+
+input:not(:placeholder-shown)~label,
+input:focus~label {
+    cursor: auto;
+    transform: translate(-5px, -20px) scale(85%);
+    color: white;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    justify-content: space-between;
+    padding: 2em;
+    color: white;
+    background-color: red;
+}
+
+main {
+    min-height: 83vh;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.research {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader {
+    position: relative;
+    z-index: 10;
+    border: red solid 36px;
+    border-bottom: whitesmoke 36px solid;
+    border-right: whitesmoke 36px solid;
+    border-radius: 50%;
+    box-shadow: black 0 0 10px;
+    width: 100px;
+    height: 100px;
+    transform: rotate(45deg);
+    animation: spin 1s ease-in-out infinite;
+
+    &::before {
+        content: '';
+        z-index: 2;
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        border: black solid 5px;
+        border-radius: 50%;
+    }
+
+    &::after {
+        content: '';
+        z-index: 1;
+        position: absolute;
+        background-color: black;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        height: 5px;
+        width: 100px;
+
+    }
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3rem;
+    gap: 16px;
+    background-color: rgb(200, 200, 200);
+    border-radius: 64px;
+    box-shadow: rgba(0, 0, 0, 0.75) 0 0 30px;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    background-color: red;
+    border-radius: 32px;
+    width: fit-content;
+    padding: 1em;
+}
+
+.sprites-container {
+    background-color: transparent;
+    width: 200px;
+    height: 200px;
+    perspective: 1000px;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 32px;
+    backface-visibility: hidden;
+
+    .sprites {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+
+        .sprites-back,
+        .sprites-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+
+            filter: drop-shadow(rgba(0, 0, 0, 0.3) 3px 3px 5px);
+
+            img {
+                height: 100%;
+                width: 100%;
+
+            }
+
+        }
+
+        .sprites-back {
+            transform: rotateY(180deg);
+            backface-visibility: hidden;
+        }
+    }
+
+    &.turn .sprites {
+        transform: rotateY(180deg);
+        backface-visibility: hidden;
+    }
+
+
+}
+
+.control {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+    padding: 0.25em;
+    border-radius: 32px;
+
+
+    button {
+        position: relative;
+        background: none;
+        border: none;
+        display: flex;
+        align-items: center;
+        border-radius: 8px;
+        padding: 8px;
+        transition: background-color 250ms;
+
+        svg {
+            fill: white;
+        }
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+    }
+}
+
+.info {
+    padding: 1em;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 32px 32px 64px 64px;
+    width: 100%;
+
+    p {
+        padding-left: 16px;
+    }
+}
+
+.name {
+    font-weight: 900;
+    font-size: 1.5rem;
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+
+
+@keyframes spin {
+    from {
+        transform: rotate(45deg);
+    }
+
+    to {
+        transform: rotate(405deg);
+    }
+}
+
+@media screen and (min-width: 640px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    footer {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .cards {
+        flex-direction: row;
+        gap: 0;
+    }
+
+    .info {
+        padding: 1em;
+        background-color: white;
+        border-radius: 0 32px 32px 0;
+    }
+}
