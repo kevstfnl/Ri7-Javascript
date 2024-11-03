@@ -10,7 +10,6 @@ const searchButton = document.getElementById("searchButton");
 const api = "https://pokeapi.co/api/v2/";
 let displayed = 0;
 
-
 searchButton.addEventListener("click", () => search());
 searchBar.addEventListener("keydown", (e) => {
     const key = e.key;
@@ -55,7 +54,7 @@ class Pokemon {
                 displayed--;
             }
             if (displayed == 0) {
-                home.classList.remove("hidden")
+                home.classList.remove("hidden");
             }
         })
         cardsList.prepend(pokemonCard);
@@ -67,7 +66,7 @@ function search() {
     if (search == "") return;
     searchBar.value = "";
     home.classList.add("hidden");
-    error.classList.add("hidden")
+    error.classList.add("hidden");
     loading.classList.remove("hidden");
     fetchData(search);
 }
@@ -86,7 +85,7 @@ async function fetchData(search) {
         addCard(pokemon, species);
     } catch (err) {
         errorMessage.textContent = "Raison: " + err.message;
-        error.classList.remove("hidden")
+        error.classList.remove("hidden");
     }
     finally {
         loading.classList.add("hidden");

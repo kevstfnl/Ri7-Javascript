@@ -158,6 +158,12 @@ main {
     }
 }
 
+.cards-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .cards {
     display: flex;
     flex-direction: column;

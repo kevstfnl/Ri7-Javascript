@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: hsl(220, 15%, 5%);
+    color: white;
+    height: 100vh;
+}
+
+.tasks {
+    background-color: hsl(220, 15%, 10%);
+    width: 80vw;
+}
+
+.user {
+    display: flex;
+    gap: 8px;
+    position: relative;
+
+
+    input {
+        background-color: hsl(220, 15%, 15%);
+        outline: none;
+        border: none;
+        color: white;
+        border-radius: 8px;
+        padding: 0.5em;
+    }
+
+    input~label {
+        position: absolute;
+        cursor: text;
+        transition: transform 250ms;
+    }
+
+    input:focus~label,
+    input:placeholder-shown~label {
+        cursor: auto;
+        transform: scale(90%) translateY(-25px);
+    }
+
+    button {
+        background: none;
+        border: none;
+        border-radius: 8px;
+        line-height: 0;
+
+        svg {
+            fill: white;
+        }
+
+        &:hover {
+            background-color: hsl(220, 15%, 15%);
+        }
+    }
+}
+
+.delete {
+    background-color: red;
+    border: none;
+    border-radius: 8px;
+    line-height: 0;
+
+    svg {
+        fill: white;
+    }
+}
+
+.taskStyle {
+    display: flex;
+    background-color: hsl(220, 15%, 15%);
+    gap: 8px;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Todo</title>
+</head>
+
+<body>
+    <header>
+        <h1>Todo</h1>
+    </header>
+
+    <div id="tasks">
+        <template id="newTask">
+            <div class="taskStyle">
+                <p class="task">Tache</p>
+                <button class="delete">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="undefined">
+                        <path
+                            d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" />
+                    </svg>
+                </button>
+            </div>
+        </template>
+    </div>
+
+    <div class="user">
+        <input type="text" id="task">
+        <label for="task">Entre une tache</label>
+        <button id="add">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                fill="undefined">
+                <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+            </svg>
+        </button>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>

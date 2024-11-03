@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    font-weight: 700;
+    text-decoration: none;
+    color: white;
+    transition: color 250ms;
+
+    &:hover {
+        color: cyan;
+    }
+}
+
+
+.background {
+    position: absolute;
+    filter: blur(10px) brightness(70%) contrast(120%);
+    transform: scale(110%);
+    z-index: -1;
+    height: 100vh;
+    width: 100vw;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    font-family: sans-serif;
+    color: white;
+    overflow: hidden;
+}
+
+header {
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 8px;
+}
+
+#time {
+    font-weight: 900;
+    font-size: 1.5rem;
+}
+
+h1 {
+    font-weight: 900;
+    font-size: 2.5rem;
+}
+
+footer {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.35);
+    padding-inline: 64px;
+}
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 128px;
+    height: 100%;
+
+}
+
+.input-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 8px;
+    gap: 4px;
+
+    button {
+        background: none;
+        border: none;
+        border-radius: 8px;
+        line-height: 0;
+        padding: 0.35em;
+        transition: background-color 250ms;
+
+        svg {
+            fill: white
+        }
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.25);
+        }
+
+        &:active {
+            transition: background-color 50ms;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+    }
+}
+
+input {
+    border: none;
+    outline: none;
+    background: none;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+    color: white;
+    border-radius: 8px;
+    font-size: 1rem;
+    padding: 0.5em 1em 0.5em 1em;
+}
+
+input~label {
+    position: absolute;
+    left: 10px;
+    cursor: text;
+    color: rgb(202, 202, 202);
+    transition: transform 250ms, color 250ms;
+}
+
+input:not(:placeholder-shown)~label,
+input:focus~label {
+    cursor: auto;
+    transform: translateY(-25px) scale(85%);
+    color: white;
+}
+
+.hidden {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+    width: 100%;
+}
+
+
+@media screen and (min-width: 640px) {
+    header {
+        flex-direction: row;
+        padding-bottom: 0;
+    }
+
+    .row {
+        flex-direction: row;
+    }
+
+    .info {
+        margin-top: 16px;
+        margin-left: 16px;
+        text-align: start;
+    }
+
+    footer {
+        flex-direction: row;
+        text-align: start;
+    }
+}
