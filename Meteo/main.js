@@ -1,15 +1,17 @@
-// Get lat and long https://openweathermap.org/api/geocoding-api
-// Get weather current https://openweathermap.org/current  https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
-
 const user = document.getElementById('user');
 const time = document.getElementById('time')
 const searchButton = document.getElementById('searchButton');
+const loader = document.getElementById('loader');
 
 const result = document.getElementById('result');
 const city = document.getElementById('city');
 const weather = document.getElementById('weather');
 const temp = document.getElementById('temp');
 const wind = document.getElementById('wind');
+const icon = document.getElementById("icon");
+
+
+
 
 // INTERDIT
 const api = "https://api.openweathermap.org/data/2.5/weather?";
@@ -17,23 +19,45 @@ const key = "&appid=03c3e8281f53d31444abbcd6c8b3129d";
 const golbalOptions = "&lang=fr&units=metric"
 // BERK
 
+
+
+
+let timeTest = performance.now()
+let hasGeolocalized = false;
+let lat = 0;
+let long = 0;
+navigator.geolocation.getCurrentPosition((pos) => {
+    lat = pos.coords.latitude;
+    long = pos.coords.longitude;
+    hasGeolocalized = true;
+    console.log("Time to geoloc: " + (performance.now() - timeTest) + "ms");
+}, undefined, {
+    enableHighAccuracy: false,
+    timeout: 10000,
+    maximumAge: Infinity //Cache
+})
+
+
+
+
+
 const localize = document.getElementById("localize");
 localize.addEventListener('click', () => {
-    navigator.geolocation.getCurrentPosition((pos) => {
-        let lat = pos.coords.latitude;
-        let long = pos.coords.longitude;
+    if (hasGeolocalized) {
+        loader.classList.remove("hidden");
         getWeather(`lat=${lat}&lon=${long}`);
-    })
+    }
 });
+
 searchButton.addEventListener("click", () => search())
 user.addEventListener("keydown", (e) => {
     if (e.key == "Enter") search();
 });
 
 function search() {
-    const value = user.value;
+    loader.classList.remove("hidden");
+    const value = user.value.toLowerCase();
     if (value == "") return;
-    console.log(value);
     user.value = "";
     getWeather(`q=${value},fr`);
 }
@@ -46,15 +70,19 @@ async function getWeather(options) {
         updateDom(jsonResp);
     } catch (err) {
         console.error(err);
+        loader.classList.add("hidden");
+
     }
 }
 
 function updateDom(json) {
+    loader.classList.add("hidden");
     result.classList.remove("hidden");
     city.textContent = "Actuellement à " + json.name;
     weather.textContent = "Temps: " + json.weather[0].description;
     temp.textContent = "Température: " + json.main.temp + "°C";
-    wind.textContent = "Vent: ";
+    wind.textContent = "Vent: " + json.wind.speed + "m/s";
+    icon.src = " https://openweathermap.org/img/wn/" + json.weather[0].icon + "@2x.png"
 }
 
 function updateDate() {
@@ -63,7 +91,6 @@ function updateDate() {
     const jour = String(date.getDate()).padStart(2, '0');
     const mois = String(date.getMonth() + 1).padStart(2, '0');
     const annee = date.getFullYear();
-
     const heures = String(date.getHours()).padStart(2, '0');
     const minutes = String(date.getMinutes()).padStart(2, '0');
     const secondes = String(date.getSeconds()).padStart(2, '0');
@@ -73,4 +100,5 @@ function updateDate() {
         updateDate();
     }, 1000);
 }
+
 updateDate();

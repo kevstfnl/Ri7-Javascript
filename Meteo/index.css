@@ -64,6 +64,10 @@ footer {
     padding-inline: 64px;
 }
 
+img {
+    user-select: none;
+}
+
 
 main {
     display: flex;
@@ -119,6 +123,7 @@ input {
 
 input~label {
     position: absolute;
+    user-select: none;
     left: 10px;
     cursor: text;
     color: rgb(202, 202, 202);
@@ -145,6 +150,27 @@ input:focus~label {
     gap: 16px;
     text-align: center;
     width: 100%;
+}
+
+.loader {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border-top: transparent solid 10px;
+    border-right: transparent solid 10px;
+    border-left: transparent solid 10px;
+    border-bottom: blue solid 10px;
+    animation: spin 1s infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 
