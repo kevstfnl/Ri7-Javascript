@@ -11,15 +11,11 @@ const wind = document.getElementById('wind');
 const icon = document.getElementById("icon");
 
 
-
-
 // INTERDIT
 const api = "https://api.openweathermap.org/data/2.5/weather?";
 const key = "&appid=03c3e8281f53d31444abbcd6c8b3129d";
 const golbalOptions = "&lang=fr&units=metric"
 // BERK
-
-
 
 
 let timeTest = performance.now()
@@ -36,10 +32,6 @@ navigator.geolocation.getCurrentPosition((pos) => {
     timeout: 10000,
     maximumAge: Infinity //Cache
 })
-
-
-
-
 
 const localize = document.getElementById("localize");
 localize.addEventListener('click', () => {
@@ -102,3 +94,26 @@ function updateDate() {
 }
 
 updateDate();
+
+
+
+
+
+
+
+
+let tableau = [
+    ["", "", ""],
+    ["", "", ""],
+    ["", "", ""],
+]
+
+
+
+for (let i = 0; i < tableau.length; i++) {
+
+    for (let j = 0; j < array.length; j++) {
+
+
+    }
+}

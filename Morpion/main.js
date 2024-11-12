@@ -15,8 +15,8 @@ const announce = document.getElementById("announce");
 replayButton.addEventListener("click", () => start());
 leaveButton.addEventListener("click", () => leave());
 settingsButton.addEventListener("click", () => leave());
-let board = []
-let winningLines = []
+let board = [];
+let winningLines = [];
 
 function leave() {
     board = [];
@@ -80,9 +80,7 @@ function generateGrid() {
 function generateWinningLines() {
     let timing = performance.now();
     let lineSize = 3;
-    if (isConnectFour) {
-        lineSize = 4;
-    }
+    if (isConnectFour) lineSize = 4;
 
     let boardHorizontal = board.length;
     let boardVertical = board[0].length;
@@ -189,11 +187,10 @@ function checkWinner() {
         if (isWinningLine) {
             return { winner: symbol, winningLine: line, egality: false };
         }
-
-        const isBoardFull = board.every(row => row.every(cell => cell !== ""));
-        if (isBoardFull) {
-            return { winner: null, winningLine: null, egality: true };
-        }
+    }
+    const isBoardFull = board.every(row => row.every(cell => cell !== ""));
+    if (isBoardFull) {
+        return { winner: null, winningLine: null, egality: true };
     }
     return { winner: null, winningLine: null, egality: false };
 }
